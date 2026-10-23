@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dicionário de Fórmulas e Macetes — Usina de Ideias</title>
+<meta name="description" content="Macetes de potência hidrelétrica, rendimento, energia eólica, E=mc² e tabela de conversão de unidades.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script>try{const t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">⚡ Usina <span>de Ideias</span></a>
+    <nav class="site-nav" aria-label="Principal">
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="../index.html#simuladores">Simuladores</a></li>
+        <li><a href="../index.html#quiz">Quiz</a></li>
+        <li><a href="#macetes" aria-current="page">Macetes</a></li>
+        <li><a href="#unidades">Unidades</a></li>
+      </ul>
+    </nav>
+    <form class="search" role="search" onsubmit="return false">
+      <label for="busca" class="skip">Buscar</label>
+      <input id="busca" type="search" placeholder="Buscar fórmula…" autocomplete="off">
+      <output id="busca-res" aria-live="polite"></output>
+    </form>
+    <button class="btn-theme" id="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
+  </div>
+</header>
+
+<main id="conteudo" class="wrap">
+  <section class="hero"><h1>Dicionário de <span>macetes</span></h1>
+  <p class="lead">As fórmulas que mais caem, com o "jeitinho" para nunca mais esquecer.</p></section>
+
+  <section id="macetes" class="poster" aria-labelledby="h-mac">
+    <h2 id="h-mac">Cartões de macete</h2>
+    <div class="grid g3">
+      <article class="card" data-search="potência hidrelétrica itaipu vazão altura">
+        <span class="tag water">Hidro</span><h3>Potência hidrelétrica</h3>
+        <p><span class="formula">P = η·ρ·g·h·Q</span></p>
+        <p>ρ = 1000 kg/m³ (água), g ≈ 10 m/s², h em metros, Q em m³/s → P em watts.</p>
+        <p class="macete">"<strong>Ê-Rô-Gê-Agá-Quê</strong>": lê como um nome próprio. E lembra: 1000 × 10 = 10⁴, então P ≈ η·10⁴·h·Q.</p>
+      </article>
+      <article class="card" data-search="rendimento eficiência carnot">
+        <span class="tag fire">Térmica</span><h3>Rendimento</h3>
+        <p><span class="formula">η = P<sub>útil</sub>/P<sub>total</sub></span> <span class="formula">η<sub>C</sub> = 1 − T<sub>f</sub>/T<sub>q</sub></span></p>
+        <p>Sempre entre 0 e 1 (ou 0% e 100%, nunca incluindo 100%).</p>
+        <p class="macete">"<strong>Útil sobre Total</strong>, o resto é calor no quintal." E Carnot: <em>Frio em cima, Quente embaixo</em>, sempre em Kelvin.</p>
+      </article>
+      <article class="card" data-search="vento eólica cúbica velocidade">
+        <span class="tag">Eólica</span><h3>Relação cúbica do vento</h3>
+        <p><span class="formula">P = ½·ρ·A·v³</span> ⇒ <span class="formula">P ∝ v³</span></p>
+        <p>Dobrou a velocidade do vento? A potência fica 2³ = <strong>8 vezes</strong> maior.</p>
+        <p class="macete">Vento "ao <strong>cubo</strong>": imagine o vento enchendo uma <strong>caixa</strong> (cubo). Triplicou v? 27×!</p>
+      </article>
+      <article class="card" data-search="einstein massa energia fusão fissão nuclear">
+        <span class="tag nuke">Nuclear</span><h3>Equação de Einstein</h3>
+        <p><span class="formula">E = m·c²</span></p>
+        <p>c = 3×10⁸ m/s → c² = 9×10¹⁶. Massa em kg, energia em joules.</p>
+        <p class="macete">"<strong>E</strong>u <strong>M</strong>e <strong>C</strong>ansei <strong>²</strong> vezes": 1 g de massa ≈ 9×10¹³ J ≈ a energia de ~21 mil toneladas de TNT.</p>
+      </article>
+      <article class="card" data-search="faraday indução fem fluxo">
+        <span class="tag">Gerador</span><h3>Lei de Faraday</h3>
+        <p><span class="formula">ε = −N·ΔΦ/Δt</span> <span class="formula">Φ = B·A·cos θ</span></p>
+        <p class="macete">"<strong>Variou, induziu</strong>." Fluxo constante = corrente zero.</p>
+      </article>
+      <article class="card" data-search="energia potencial cinética conservação">
+        <span class="tag">Mecânica</span><h3>Conservação</h3>
+        <p><span class="formula">m·g·h = ½·m·v²</span> ⇒ <span class="formula">v = √(2gh)</span></p>
+        <p class="macete">A massa "cancela": a velocidade de queda não depende do quanto de água, só da altura.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="unidades" class="poster" aria-labelledby="h-un">
+    <h2 id="h-un">Tabela de conversão de unidades</h2>
+    <div class="field"><label for="un-busca">Filtrar a tabela</label><input id="un-busca" type="search" placeholder="Ex.: caloria, kelvin, MW…" style="border:var(--border);border-radius:10px;padding:6px 12px;background:var(--paper)"></div>
+    <div class="table-scroll"><table class="units" id="un-tabela">
+      <thead><tr><th>Grandeza</th><th>De</th><th>Para</th><th>Como converter</th></tr></thead>
+      <tbody>
+        <tr><td>Vazão</td><td>m³/s</td><td>L/s</td><td>× 1000</td></tr>
+        <tr><td>Vazão</td><td>m³/s</td><td>m³/h</td><td>× 3600</td></tr>
+        <tr><td>Potência</td><td>MW</td><td>W</td><td>× 10⁶</td></tr>
+        <tr><td>Potência</td><td>GW</td><td>MW</td><td>× 1000</td></tr>
+        <tr><td>Potência</td><td>cv (cavalo-vapor)</td><td>W</td><td>× 735,5</td></tr>
+        <tr><td>Energia</td><td>J</td><td>cal (caloria)</td><td>÷ 4,186</td></tr>
+        <tr><td>Energia</td><td>cal</td><td>J</td><td>× 4,186</td></tr>
+        <tr><td>Energia</td><td>kWh</td><td>J</td><td>× 3,6×10⁶</td></tr>
+        <tr><td>Energia</td><td>eV (elétron-volt)</td><td>J</td><td>× 1,6×10⁻¹⁹</td></tr>
+        <tr><td>Temperatura</td><td>°C</td><td>K (kelvin)</td><td>+ 273</td></tr>
+        <tr><td>Temperatura</td><td>K</td><td>°C</td><td>− 273</td></tr>
+        <tr><td>Temperatura</td><td>°F</td><td>°C</td><td>(°F − 32) × 5/9</td></tr>
+        <tr><td>Massa</td><td>t (tonelada)</td><td>kg</td><td>× 1000</td></tr>
+        <tr><td>Comprimento</td><td>km</td><td>m</td><td>× 1000</td></tr>
+      </tbody>
+    </table></div>
+    <p id="un-vazio" class="muted" hidden>Nenhuma unidade encontrada.</p>
+
+    <h3 style="margin-top:22px">Conversor rápido K ↔ °C</h3>
+    <div class="grid g2">
+      <div class="field"><label for="conv-c">Celsius (°C)</label><input id="conv-c" type="number" value="25" style="border:var(--border);border-radius:10px;padding:6px 12px;background:var(--paper)"></div>
+      <div class="field"><label for="conv-k">Kelvin (K)</label><input id="conv-k" type="number" value="298" style="border:var(--border);border-radius:10px;padding:6px 12px;background:var(--paper)"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="wrap"><p><a href="../index.html">← Voltar para a jornada da energia</a></p></div></footer>
+<script src="../js/main.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const inp=document.getElementById('un-busca'),rows=[...document.querySelectorAll('#un-tabela tbody tr')],vazio=document.getElementById('un-vazio');
+  const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  inp.addEventListener('input',()=>{const q=norm(inp.value.trim());let n=0;rows.forEach(r=>{const ok=!q||norm(r.textContent).includes(q);r.hidden=!ok;if(ok)n++});vazio.hidden=n>0});
+  const c=document.getElementById('conv-c'),k=document.getElementById('conv-k');
+  c.addEventListener('input',()=>{if(c.value!=='')k.value=(+c.value+273.15).toFixed(2)});
+  k.addEventListener('input',()=>{if(k.value!=='')c.value=(+k.value-273.15).toFixed(2)});
+});
+</script>
+</body>
+</html>

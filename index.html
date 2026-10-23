@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usina de Ideias — A Jornada da Energia Elétrica</title>
+  <meta name="description"
+    content="Hidrelétrica, termelétrica, Carnot e física nuclear explicados com simuladores interativos para o Ensino Médio e vestibulares.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; else if (matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark' } catch (e) { }</script>
+</head>
+
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">⚡ Usina <span>de Ideias</span></a>
+      <nav class="site-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#jornada">Jornada</a></li>
+          <li><a href="#comparativo">Hidro × Termo</a></li>
+          <li><a href="#termica">Carnot</a></li>
+          <li><a href="#nuclear">Nuclear</a></li>
+          <li><a href="#simuladores">Simuladores</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="paginas/exercicios.html">Macetes</a></li>
+          <li><a href="#alunos">Alunos</a></li>
+        </ul>
+      </nav>
+      <form class="search" role="search" onsubmit="return false">
+        <label for="busca" class="skip">Buscar</label>
+        <input id="busca" type="search" placeholder="Buscar: Itaipu, Carnot…" autocomplete="off">
+        <output id="busca-res" aria-live="polite"></output>
+      </form>
+      <!-- <button class="btn-theme" id="theme-toggle" type="button" aria-label="Alternar tema">🌙</button> -->
+    </div>
+  </header>
+
+  <main id="conteudo" class="wrap">
+    <section class="hero" aria-labelledby="titulo">
+      <h1 id="titulo">De onde vem a <span>energia</span> do seu celular?</h1>
+      <p class="lead">São 7h da manhã. Você tira o celular do carregador com 100% de bateria. Mas aquele "100%" não
+        nasceu na tomada: ele viajou centenas de quilômetros por fios, passou por transformadores e, lá no começo, era
+        <strong>água parada numa represa</strong>, <strong>carvão num forno</strong> ou <strong>um átomo de urânio se
+          partindo</strong>. Bora seguir essa trilha?</p>
+      <ol class="chain" aria-label="Cadeia de transformações de energia">
+        <li>💧 E<sub>potencial</sub></li>
+        <li class="arrow" aria-hidden="true">➜</li>
+        <li>🌊 E<sub>cinética</sub></li>
+        <li class="arrow" aria-hidden="true">➜</li>
+        <li>⚙️ E<sub>mecânica</sub></li>
+        <li class="arrow" aria-hidden="true">➜</li>
+        <li>⚡ E<sub>elétrica</sub></li>
+        <li class="arrow" aria-hidden="true">➜</li>
+        <li>📱 Bateria</li>
+      </ol>
+    </section>
+
+    <!-- ===== 1. Jornada ===== -->
+    <section id="jornada" class="poster" aria-labelledby="h-jornada">
+      <span class="tag">Capítulo 1</span>
+      <h2 id="h-jornada">A jornada da energia</h2>
+      <div class="grid g2">
+        <article class="card" data-search="conservação energia potencial cinética jornada celular">
+          <h3>Nada se cria, tudo se transforma</h3>
+          <p>O <strong>Princípio da Conservação da Energia</strong> é a regra de ouro: a energia total de um sistema
+            isolado nunca some nem aparece do nada — ela só muda de forma. Uma usina não "fabrica" energia; ela é uma
+            <em>tradutora</em>, convertendo uma forma que a natureza nos dá numa forma que o seu carregador entende.</p>
+          <p>Numa hidrelétrica, a água no alto da represa guarda <strong>energia potencial gravitacional</strong> (<span
+              class="formula">E<sub>p</sub> = m·g·h</span>). Ao descer pelo duto forçado, ela ganha velocidade: vira
+            <strong>energia cinética</strong> (<span class="formula">E<sub>c</sub> = ½·m·v²</span>). Essa água bate nas
+            pás da turbina, que gira — <strong>energia mecânica</strong> de rotação — e o gerador acoplado converte tudo
+            em <strong>energia elétrica</strong>.</p>
+          <p class="macete">Pense num "repasse de bastão": cada etapa entrega a energia para a próxima, mas sempre perde
+            um pouquinho em calor e atrito no caminho.</p>
+        </article>
+        <article class="card" data-search="transmissão linha tensão transformador celular carregador">
+          <h3>A viagem até a tomada</h3>
+          <p>A eletricidade sai do gerador e vai para uma subestação, onde <strong>transformadores elevam a
+              tensão</strong> para centenas de milhares de volts. Por quê? Porque a perda nos fios é proporcional a
+            <span class="formula">P<sub>perda</sub> = R·i²</span>: tensão alta permite corrente baixa, e corrente baixa
+            significa menos aquecimento dos cabos.</p>
+          <p>Perto da sua casa, outro transformador baixa a tensão para 127 V ou 220 V. Por fim, o carregador do celular
+            converte para ~5 V em corrente contínua e a bateria armazena tudo como <strong>energia química</strong>.
+            Fechou o ciclo!</p>
+          <svg class="diagram" viewBox="0 0 400 120" role="img" aria-label="Linha de transmissão com fluxo de energia">
+            <line x1="20" y1="60" x2="380" y2="60" stroke="currentColor" stroke-width="3" />
+            <line class="flow" x1="20" y1="60" x2="380" y2="60" stroke="#ffd43b" stroke-width="6" />
+            <g fill="none" stroke="currentColor" stroke-width="3">
+              <path d="M60 110 L80 20 L100 110 M68 70 H92" />
+              <path d="M200 110 L220 20 L240 110 M208 70 H232" />
+              <path d="M330 110 L350 20 L370 110 M338 70 H362" />
+            </g>
+            <text x="10" y="20" font-size="14" fill="currentColor">Usina</text><text x="330" y="20" font-size="14"
+              fill="currentColor">Casa</text>
+          </svg>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 2. Comparativo ===== -->
+    <section id="comparativo" class="poster" aria-labelledby="h-cmp">
+      <span class="tag water">Capítulo 2</span>
+      <h2 id="h-cmp">Hidrelétrica × Termelétrica</h2>
+      <p>Surpresa: por dentro, as duas usinas terminam do <strong>mesmo jeito</strong> — um fluido empurra as pás de uma
+        turbina, que gira um gerador. O que muda é <em>quem empurra</em>.</p>
+      <div class="grid g2">
+        <article class="card" data-search="hidrelétrica itaipu água represa turbina queda potencial">
+          <span class="tag water">Água em queda</span>
+          <h3>Hidrelétrica</h3>
+          <svg class="diagram" viewBox="0 0 400 220" role="img"
+            aria-label="Esquema de hidrelétrica com água fluindo para turbina giratória">
+            <path d="M10 40 H150 V200 H10Z" fill="#1d7fd1" opacity=".75" />
+            <path d="M150 20 L190 20 L190 210 L150 210" fill="#9aa7b1" stroke="currentColor" stroke-width="3" />
+            <path class="flow" d="M140 180 Q220 180 250 160" stroke="#1d7fd1" stroke-width="10" fill="none" />
+            <g class="spin" transform="translate(275 150)">
+              <circle r="26" fill="none" stroke="currentColor" stroke-width="4" />
+              <path d="M0-24V24M-24 0H24M-17-17L17 17M17-17L-17 17" stroke="currentColor" stroke-width="4" />
+            </g>
+            <path class="flow slow" d="M300 150 H360 V60" stroke="#ffd43b" stroke-width="5" fill="none" />
+            <text class="pulse" x="340" y="50" font-size="30">⚡</text>
+            <text x="20" y="30" font-size="14" fill="currentColor">Reservatório (h)</text>
+          </svg>
+          <p>A represa acumula água a uma altura <em>h</em>. Abriu a comporta, a gravidade faz o resto: a água desce com
+            força, gira a turbina e pronto. O "combustível" é a chuva, de graça e renovada pelo ciclo da água.
+            <strong>Itaipu</strong>, na fronteira Brasil–Paraguai, tem 14 GW instalados e é uma das maiores do mundo.
+          </p>
+          <p class="muted">Contra: alagamento de grandes áreas, deslocamento de comunidades ribeirinhas e indígenas,
+            emissão de metano pela vegetação submersa e dependência das chuvas (crise hídrica = bandeira vermelha na
+            conta).</p>
+        </article>
+        <article class="card" data-search="termelétrica vapor caldeira carvão gás combustível fóssil calor">
+          <span class="tag fire">Vapor sob pressão</span>
+          <h3>Termelétrica</h3>
+          <svg class="diagram" viewBox="0 0 400 220" role="img"
+            aria-label="Esquema de termelétrica com caldeira, vapor e turbina">
+            <rect x="20" y="80" width="110" height="120" rx="8" fill="#9aa7b1" stroke="currentColor" stroke-width="3" />
+            <text class="pulse" x="50" y="180" font-size="40">🔥</text>
+            <g fill="#c9d3da">
+              <circle class="boil" cx="60" cy="60" r="12" />
+              <circle class="boil" cx="90" cy="45" r="9" style="animation-delay:.6s" />
+            </g>
+            <path class="flow" d="M130 110 H245" stroke="#f26a21" stroke-width="10" fill="none" />
+            <g class="spin" transform="translate(275 110)">
+              <circle r="26" fill="none" stroke="currentColor" stroke-width="4" />
+              <path d="M0-24V24M-24 0H24M-17-17L17 17M17-17L-17 17" stroke="currentColor" stroke-width="4" />
+            </g>
+            <path class="flow slow" d="M275 140 V190 H90 V200" stroke="#1d7fd1" stroke-width="5" fill="none" />
+            <text x="140" y="210" font-size="13" fill="currentColor">Condensador (fonte fria)</text>
+            <path class="flow slow" d="M300 110 H360 V40" stroke="#ffd43b" stroke-width="5" fill="none" /><text
+              class="pulse" x="340" y="32" font-size="30">⚡</text>
+          </svg>
+          <p>Queima-se carvão, óleo, gás natural ou biomassa numa caldeira. O calor ferve água, gerando <strong>vapor a
+              alta pressão e temperatura</strong>, que dispara contra a turbina. Depois o vapor passa pelo
+            <strong>condensador</strong>, volta a ser líquido e recomeça o ciclo.</p>
+          <p class="muted">Vantagem: liga quando quiser, não depende de chuva. Contra: precisa de queima
+            <em>constante</em> de combustível (custo contínuo) e emite CO₂, aquecendo o planeta.</p>
+        </article>
+      </div>
+
+      <article class="card" style="margin-top:22px"
+        data-search="indução faraday gerador ímã bobina fluxo magnético vetor lenz">
+        <h3>O coração das duas: a Indução de Faraday</h3>
+        <p>Dentro do gerador há ímãs (ou eletroímãs) girando perto de bobinas de cobre. Quando o <strong>fluxo
+            magnético</strong> que atravessa a bobina varia, surge uma força eletromotriz: <span class="formula">ε = −ΔΦ
+            / Δt</span>. O sinal de menos é a <strong>Lei de Lenz</strong>: a corrente induzida "briga" contra a
+          variação que a criou — é por isso que girar o gerador exige esforço, e esse esforço é exatamente a energia
+          mecânica sendo convertida.</p>
+        <p>O fluxo depende do ângulo entre o <strong>vetor</strong> campo magnético B e o vetor normal à espira: <span
+            class="formula">Φ = B·A·cos θ</span>. Girando, o θ muda sem parar, e o resultado é a corrente
+          <strong>alternada</strong> (60 Hz no Brasil).</p>
+        <p class="macete">Sem movimento, sem corrente. Ímã parado do lado da bobina não gera nada — tem que
+          <em>variar</em>!</p>
+      </article>
+
+      <article class="card" style="margin-top:22px"
+        data-search="custo impacto ambiental 60% calor perda rendimento termelétrica">
+        <h3>A matemática do bolso e do ar</h3>
+        <p>Uma termelétrica típica a carvão tem rendimento de ~35–40%. Ou seja, de cada 100 J de energia química do
+          combustível, <strong>até 60 J viram calor jogado fora</strong> no condensador e na chaminé. Não é desleixo dos
+          engenheiros: é a <strong>Segunda Lei da Termodinâmica</strong> cobrando seu pedágio (veja o próximo capítulo).
+          Já as grandes hidrelétricas passam de 90% de rendimento, pois não há etapa térmica no meio.</p>
+        <div class="table-scroll">
+          <table class="cmp">
+            <thead>
+              <tr>
+                <th>Critério</th>
+                <th>Hidrelétrica</th>
+                <th>Termelétrica</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fonte primária</td>
+                <td>E. potencial gravitacional</td>
+                <td>E. química/térmica do combustível</td>
+              </tr>
+              <tr>
+                <td>Rendimento típico</td>
+                <td>85–95%</td>
+                <td>30–45% (ciclo combinado ~60%)</td>
+              </tr>
+              <tr>
+                <td>Custo de operação</td>
+                <td>Baixo (água é "grátis")</td>
+                <td>Alto e contínuo (combustível)</td>
+              </tr>
+              <tr>
+                <td>Emissões de CO₂</td>
+                <td>Baixas (metano em reservatórios)</td>
+                <td>Altas</td>
+              </tr>
+              <tr>
+                <td>Disponibilidade</td>
+                <td>Depende das chuvas</td>
+                <td>Sob demanda</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== 3. Térmica ===== -->
+    <section id="termica" class="poster" aria-labelledby="h-term">
+      <span class="tag fire">Capítulo 3</span>
+      <h2 id="h-term">Máquinas térmicas e os limites da natureza</h2>
+      <div class="grid g2">
+        <article class="card" data-search="segunda lei termodinâmica fonte fria condensador entropia máquina térmica">
+          <h3>Por que precisa de uma fonte fria?</h3>
+          <p>Imagine uma cachoeira: a água só gira o moinho porque <em>cai</em> de um nível alto para um baixo. Com o
+            calor é igual. Uma máquina térmica só produz trabalho se o calor <strong>flui</strong> de uma <strong>fonte
+              quente</strong> (T<sub>q</sub>) para uma <strong>fonte fria</strong> (T<sub>f</sub>). Sem desnível de
+            temperatura, não há "queda" — e não há trabalho.</p>
+          <p>Essa é a ideia da <strong>Segunda Lei</strong> (enunciado de Kelvin-Planck): <em>é impossível construir uma
+              máquina que, operando em ciclo, transforme integralmente calor em trabalho</em>. Sempre sobra um
+            Q<sub>f</sub> que precisa ser descartado — é o papel do condensador e das enormes torres de resfriamento.
+          </p>
+          <p><span class="formula">Q<sub>q</sub> = W + Q<sub>f</sub></span> &nbsp; <span class="formula">η = W /
+              Q<sub>q</sub></span></p>
+        </article>
+        <article class="card" data-search="carnot ciclo rendimento máximo kelvin temperatura">
+          <h3>O ciclo de Carnot: o teto do possível</h3>
+          <p>Em 1824, Sadi Carnot imaginou a máquina térmica perfeita, sem atrito e totalmente reversível: duas
+            transformações <strong>isotérmicas</strong> e duas <strong>adiabáticas</strong>. Ele provou que nenhuma
+            máquina real, entre as mesmas temperaturas, pode superá-la:</p>
+          <p style="text-align:center"><span class="formula">η<sub>Carnot</sub> = 1 − T<sub>f</sub> /
+              T<sub>q</sub></span></p>
+          <p>Para η = 100%, precisaríamos de T<sub>f</sub> = 0 K (zero absoluto), o que a Terceira Lei proíbe alcançar.
+            Logo, <strong>100% é impossível</strong>.</p>
+          <p class="macete">Temperatura em Carnot é SEMPRE em Kelvin! Some 273 ao valor em °C antes de dividir.
+            Esqueceu? Errou a questão.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 4. Nuclear ===== -->
+    <section id="nuclear" class="poster" aria-labelledby="h-nuc">
+      <span class="tag nuke">Capítulo 4</span>
+      <h2 id="h-nuc">Física nuclear aplicada</h2>
+      <div class="grid g2">
+        <article class="card" data-search="fissão urânio 235 reação em cadeia nêutron angra lixo radioativo">
+          <h3>Fissão: partir o átomo</h3>
+          <p>Um nêutron lento atinge um núcleo de <strong>urânio-235</strong>, que fica instável e se divide em dois
+            núcleos menores (por exemplo, bário e criptônio), liberando energia e <strong>2 ou 3 novos
+              nêutrons</strong>. Esses nêutrons podem atingir outros núcleos de U-235… e assim nasce a <strong>reação em
+              cadeia</strong>.</p>
+          <p>No reator, barras de controle (de boro ou cádmio) absorvem nêutrons extras para manter a reação
+            <em>estável</em>. O calor liberado ferve água → vapor → turbina → gerador. Sim: uma usina nuclear é, no
+            fundo, <strong>uma termelétrica</strong> com outro "fogo".</p>
+          <p>No Brasil, <strong>Angra 1</strong> (640 MW) e <strong>Angra 2</strong> (1.350 MW), em Angra dos Reis (RJ),
+            geram cerca de 2–3% da eletricidade nacional. O grande desafio é o <strong>lixo radioativo</strong>, que
+            permanece perigoso por milhares de anos e exige armazenamento seguro.</p>
+        </article>
+        <article class="card" data-search="fusão nuclear estrelas sol iter hidrogênio einstein">
+          <h3>Fusão: o motor das estrelas</h3>
+          <p>No Sol, núcleos de hidrogênio se <strong>fundem</strong> forming hélio. A massa do produto é um pouco
+            menor que a soma das massas iniciais — essa "massa sumida" virou energia, segundo <span class="formula">E =
+              m·c²</span>. Como c² é gigantesco (9×10¹⁶ m²/s²), um grama de massa vale ~9×10¹³ J!</p>
+          <p>O <strong>ITER</strong>, na França, é um projeto internacional que tenta reproduzir a fusão num reator
+            <em>tokamak</em>, confinando plasma a mais de 150 milhões de °C com campos magnéticos. Promessa: combustível
+            abundante (isótopos do hidrogênio) e quase nenhum lixo de longa duração.</p>
+          <p class="macete">FISsão = diviSão (quebra núcleo pesado). FUSão = jUnção (une núcleos leves).</p>
+        </article>
+      </div>
+      <article class="card" style="margin-top:22px" data-search="reação em cadeia simulação nêutron fissão">
+        <h3>Veja a reação em cadeia</h3>
+        <div class="chain-react">
+          <button class="btn" id="fission-start" type="button">☢️ Disparar nêutron</button>
+          <button class="btn ghost" id="fission-control" type="button" aria-pressed="false">Inserir barras de
+            controle</button>
+          <span id="fission-count" aria-live="polite">Fissões: 0</span>
+        </div>
+        <canvas id="fission-canvas" width="900" height="260"
+          aria-label="Simulação de reação em cadeia de fissão nuclear"></canvas>
+      </article>
+    </section>
+
+    <!-- ===== 5. Simuladores ===== -->
+    <section id="simuladores" class="poster" aria-labelledby="h-sim">
+      <span class="tag">Laboratório</span>
+      <h2 id="h-sim">Simuladores interativos</h2>
+      <div class="grid g2">
+        <article class="card" data-search="calculadora potência hidrelétrica vazão altura lâmpadas led itaipu">
+          <h3>Potência hidrelétrica</h3>
+          <p><span class="formula">P = η · ρ · g · h · Q</span></p>
+          <div class="field"><label for="h">Altura da queda (h) <output id="h-out">100 m</output></label><input
+              type="range" id="h" min="5" max="250" value="100"></div>
+          <div class="field"><label for="q">Vazão (Q) <output id="q-out">500 m³/s</output></label><input type="range"
+              id="q" min="10" max="10000" step="10" value="500"></div>
+          <div class="field"><label for="eta">Rendimento (η) <output id="eta-out">90%</output></label><input
+              type="range" id="eta" min="50" max="95" value="90"></div>
+          <p class="result" id="p-out" aria-live="polite">— MW</p>
+          <div class="bar" aria-hidden="true"><i id="p-bar"></i></div>
+          <p id="led-out" class="muted"></p>
+          <div class="leds" id="leds" aria-hidden="true"></div>
+        </article>
+        <article class="card" data-search="calculadora carnot rendimento temperatura kelvin celsius">
+          <h3>Rendimento de Carnot</h3>
+          <p><span class="formula">η = 1 − T<sub>f</sub> / T<sub>q</sub></span></p>
+          <div class="seg" role="group" aria-label="Unidade"><button type="button" data-unit="K"
+              aria-pressed="true">Kelvin</button><button type="button" data-unit="C"
+              aria-pressed="false">Celsius</button></div>
+          <div class="field" style="margin-top:12px"><label for="tq"><span>Fonte quente (T<sub>q</sub>)</span> <output
+                id="tq-out"></output></label><input type="range" id="tq" min="300" max="2000" value="800"></div>
+          <div class="field"><label for="tf"><span>Fonte fria (T<sub>f</sub>)</span> <output
+                id="tf-out"></output></label><input type="range" id="tf" min="1" max="600" value="300"></div>
+          <p class="result" id="c-out" aria-live="polite">—</p>
+          <div class="bar" aria-hidden="true"><i id="c-bar"></i></div>
+          <div class="alert" id="c-alert" role="status"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 6. Quiz ===== -->
+    <section id="quiz" class="poster" aria-labelledby="h-quiz">
+      <span class="tag">Desafio</span>
+      <h2 id="h-quiz">Mini-quiz estilo ENEM</h2>
+      <p>Clique numa alternativa para ver o gabarito comentado.</p>
+      <div class="progress" aria-hidden="true"><i id="quiz-bar"></i></div>
+      <p id="quiz-score" aria-live="polite">0 de 0 respondidas</p>
+      <div id="quiz-list"></div>
+      <button class="btn ghost" id="quiz-reset" type="button">Recomeçar</button>
+    </section>
+
+    <aside class="poster" aria-label="Próximo passo">
+      <h2>Quer revisar rápido?</h2>
+      <p>Todas as fórmulas, macetes e uma tabela de conversão de unidades estão reunidas no dicionário.</p>
+      <a class="btn" href="paginas/exercicios.html">Abrir dicionário de macetes →</a>
+    </aside>
+  </main>
+
+  <dialog id="quiz-dialog">
+    <h3>Parabéns! 🎉</h3>
+    <p id="quiz-final"></p>
+    <form method="dialog"><button class="btn">Fechar</button></form>
+  </dialog>
+
+  <footer id="alunos" class="site-footer">
+    <div class="wrap">
+      <p>Usina de Ideias — Alunos: Enzo de Castro Santos, Julia Sousa Menezes e Stella da Mota Xavier.</p>
+      <p>Turma: 3°B E.M. - Professora: Andrea Pavan Perin - SESI, Cerquilho, 2026</p>
+      <p class="muted" style="color:inherit;opacity:.7">Feito com HTML, CSS e JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/simulators.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+</body>
+
+</html>
