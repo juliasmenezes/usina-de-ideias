@@ -2,14 +2,14 @@
 (() => {
   'use strict';
   const root = document.documentElement;
-  const toggle = document.getElementById('theme-toggle');
-  const setIcon = () => { if (toggle) toggle.textContent = root.dataset.theme === 'dark' ? '☀️' : '🌙'; };
-  setIcon();
-  toggle?.addEventListener('click', () => {
-    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
-    setIcon();
-  });
+  // const toggle = document.getElementById('theme-toggle');
+  // const setIcon = () => { if (toggle) toggle.textContent = root.dataset.theme === 'dark' ? '☀️' : '🌙'; };
+  // setIcon();
+  // toggle?.addEventListener('click', () => {
+  //   root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  //   try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  //   setIcon();
+  // });
 
   // ===== Busca global =====
   const input = document.getElementById('busca');
